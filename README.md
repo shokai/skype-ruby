@@ -2,9 +2,12 @@ Skype
 =====
 [Skype Desktop API](http://dev.skype.com/desktop-api-reference) wrapper for Ruby
 
+- https://github.com/shokai/skype-ruby
+- http://rubygems.org/gems/skype
 
-Platform
---------
+
+Platforms
+---------
 - AppleScript + Mac OSX
 - DBus + Linux (testing on Ubuntu 12.04)
 
@@ -46,6 +49,10 @@ puts Skype.search("recentchats")
 ```ruby
 Skype.chatmessage "#name1/name2;$a1b2cdef3456", "hello chat!!"
 ```
+
+Samples
+-------
+https://github.com/shokai/skype-ruby/tree/master/samples
 
 
 Contributing
