@@ -18,12 +18,8 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  case RUBY_PLATFORM
-  when /linux/
-    spec.add_dependency "ruby-dbus"
-  when /darwin/
-    spec.add_dependency "rb-appscript"
-  end
+  spec.add_dependency "ruby-dbus" if RUBY_PLATFORM =~ /linux/
+  spec.add_dependency "rb-appscript" if RUBY_PLATFORM =~ /darwin/
 
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
