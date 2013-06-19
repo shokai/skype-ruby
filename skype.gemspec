@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Skype::VERSION
   spec.authors       = ["Sho Hashimoto"]
   spec.email         = ["hashimoto@shokai.org"]
-  spec.description   = %q{Skype API wrapper for Ruby}
+  spec.description   = %q{Skype Desktop API wrapper for Ruby}
   spec.summary       = spec.description
   spec.homepage      = "https://github.com/shokai/skype-ruby"
   spec.license       = "MIT"

@@ -1,27 +1,47 @@
-# Skype
+Skype
+=====
+[Skype Desktop API](http://dev.skype.com/desktop-api-reference) wrapper for Ruby
 
-TODO: Write a gem description
 
-## Installation
+Installation
+------------
 
-Add this line to your application's Gemfile:
+    % gem install skype
 
-    gem 'skype'
 
-And then execute:
+Usage
+-----
+please read [API Reference](http://dev.skype.com/desktop-api-reference) before use.
 
-    $ bundle
+### load
+```ruby
+require 'rubygems'
+require 'skype'
+```
 
-Or install it yourself as:
+### send message
+```ruby
+Skype.message "USER_NAME", "hello!!"
+```
 
-    $ gem install skype
+### call
+```ruby
+Skype.call "USER_NAME"
+```
 
-## Usage
+### get recent chat list
+```ruby
+puts Skype.search("recentchats")
+```
 
-TODO: Write usage instructions here
+### send message to group chat
+```ruby
+Skype.chatmessage "#name1/name2;$a1b2cdef3456", "hello chat!!"
+```
 
-## Contributing
 
+Contributing
+------------
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
