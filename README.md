@@ -15,8 +15,13 @@ Platforms
 Installation
 ------------
 
-    % gem install skype
+for Mac
 
+    % gem install skype rb-appscript
+
+for Linux
+
+    % gem install skype ruby-dbus
 
 Usage
 -----
