@@ -5,7 +5,8 @@ Skype
 
 Platform
 --------
-- Mac OSX + Skype.app
+- AppleScript + Mac OSX
+- DBus + Linux (testing on Ubuntu 12.04)
 
 
 Installation

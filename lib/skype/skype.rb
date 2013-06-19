@@ -6,6 +6,11 @@ require case RUBY_PLATFORM
         end
 
 module Skype
+  @@opts = {:app_name => "ruby-skype"}
+  def self.opts
+    @@opts
+  end
+
   def self.method_missing(name, *args)
     self.exec "#{name.upcase} #{args.join(' ')}"
   end
