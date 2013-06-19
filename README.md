@@ -3,6 +3,11 @@ Skype
 [Skype Desktop API](http://dev.skype.com/desktop-api-reference) wrapper for Ruby
 
 
+Platform
+--------
+- Mac OSX + Skype.app
+
+
 Installation
 ------------
 
