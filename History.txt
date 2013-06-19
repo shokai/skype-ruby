@@ -1,3 +1,7 @@
+=== 0.0.2 2013-06-20
+
+* fix gemspec for linux
+
 === 0.0.1 2013-06-20
 
 * implement wrapper for
