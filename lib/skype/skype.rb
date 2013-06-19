@@ -1,8 +1,11 @@
-module Skype
-  def self.exec(command)
-    Appscript.app("skype").send_ :script_name => "", :command => command
-  end
+require case RUBY_PLATFORM
+        when /darwin/
+          "skype/platforms/mac"
+        when /linux/
+          "skype/platforms/linux"
+        end
 
+module Skype
   def self.method_missing(name, *args)
     self.exec "#{name.upcase} #{args.join(' ')}"
   end
