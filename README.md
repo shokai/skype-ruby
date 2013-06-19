@@ -23,6 +23,8 @@ please read [API Reference](http://dev.skype.com/desktop-api-reference) before u
 ```ruby
 require 'rubygems'
 require 'skype'
+
+Skype.config :app_name => "my_skype_app"
 ```
 
 ### send message
