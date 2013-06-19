@@ -1,3 +1,7 @@
+=== 0.0.3 2013-06-20
+
+* give up choose dbus/applescript in gemspec
+
 === 0.0.2 2013-06-20
 
 * fix gemspec for linux
