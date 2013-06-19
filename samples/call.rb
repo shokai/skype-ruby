@@ -2,5 +2,7 @@
 $:.unshift File.expand_path '../lib', File.dirname(__FILE__)
 require 'skype'
 
-p Skype.search "recentchats"
-p Skype.message "shokai", "hello"
+puts "please put the username to call"
+print "> "
+to = STDIN.gets.strip
+p Skype.call to
