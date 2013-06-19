@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
 
   case RUBY_PLATFORM
   when /linux/
-    spec.add_dependency "dbus"
+    spec.add_dependency "ruby-dbus"
   when /darwin/
     spec.add_dependency "rb-appscript"
   end
