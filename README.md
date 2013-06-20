@@ -23,6 +23,13 @@ for Linux
 
     % gem install skype ruby-dbus
 
+Gemfile
+```ruby
+gem "skype"
+gem "rb-appscript" if RUBY_PLATFORM =~ /darwin/i
+gem "ruby-dbus" if RUBY_PLATFORM =~ /linux/i
+```
+
 Usage
 -----
 please read [API Reference](http://dev.skype.com/desktop-api-reference) before use.
