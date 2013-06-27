@@ -22,7 +22,8 @@ module Skype
         split(/,? /).
         select{|i| i =~ /^\d+$/ }.
         map{|i| i.to_i }.
-        map{|i| @@message_cache.get(i) || @@message_cache.set(i, Skype::Chat::Message.new(i), 3600*72) }
+        map{|i| @@message_cache.get(i) || @@message_cache.set(i, Skype::Chat::Message.new(i), 3600*72) }.
+        sort{|a,b| b.time <=> a.time }
     end
 
     def post(message)
@@ -30,6 +31,8 @@ module Skype
     end
 
     class Message
+
+      attr_reader :id, :user, :body, :time
 
       def initialize(id)
         @id = id
