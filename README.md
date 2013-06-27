@@ -27,7 +27,7 @@ Gemfile
 ```ruby
 gem "skype"
 gem "rb-appscript" if RUBY_PLATFORM =~ /darwin/i
-gem "ruby-dbus" if RUBY_PLATFORM =~ /linux/i
+gem "ruby-dbus"    if RUBY_PLATFORM =~ /linux/i
 ```
 
 Usage
