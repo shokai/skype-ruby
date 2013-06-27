@@ -21,6 +21,10 @@ module Skype
         map{|i| Skype::Chat::Message.new i.to_i }
     end
 
+    def post(message)
+      ::Skype.exec "CHATMESSAGE #{@id} #{message}"
+    end
+
     class Message
 
       def initialize(id)
