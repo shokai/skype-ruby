@@ -12,6 +12,7 @@ require case RUBY_PLATFORM
         end
 
 require "skype/main"
+require "skype/wrappers/chat"
 
 module Skype
 end
