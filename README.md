@@ -42,24 +42,34 @@ require 'skype'
 Skype.config :app_name => "my_skype_app"
 ```
 
-### send message
+### Simple API Wrapper
+send message
 ```ruby
 Skype.message "USER_NAME", "hello!!"
 ```
 
-### call
+call
 ```ruby
 Skype.call "USER_NAME"
 ```
 
-### get recent chat list
+### Chat API
+
+find a chat
 ```ruby
-puts Skype.search("recentchats")
+chat = Skype.chats.find{|c| c.members.include? "shokaishokai" and c.topic =~ /testchat/ }
 ```
 
-### send message to group chat
+post message to the chat
 ```ruby
-Skype.chatmessage "#name1/name2;$a1b2cdef3456", "hello chat!!"
+chat.post "hello chat!!"
+```
+
+show chat messages
+```ruby
+chat.messages.each do |m|
+  puts m
+end
 ```
 
 Samples
