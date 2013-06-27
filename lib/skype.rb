@@ -1,5 +1,6 @@
 require "rubygems"
 require "kconv"
+require "tmp_cache"
 
 require "skype/version"
 require case RUBY_PLATFORM

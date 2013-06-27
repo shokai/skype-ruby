@@ -15,3 +15,7 @@ chat.post "test"
 chat.messages.each do |m|
   puts m
 end
+
+chat.messages.each do |m|
+  puts m
+end

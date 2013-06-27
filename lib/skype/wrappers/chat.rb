@@ -7,6 +7,8 @@ module Skype
   end
 
   class Chat
+    @@message_cache = TmpCache::Cache.new
+
     attr_reader :id, :topic, :members
 
     def initialize(id)
@@ -19,7 +21,8 @@ module Skype
       ::Skype.exec("GET CHAT #{@id} RECENTCHATMESSAGES").
         split(/,? /).
         select{|i| i =~ /^\d+$/ }.
-        map{|i| Skype::Chat::Message.new i.to_i }
+        map{|i| i.to_i }.
+        map{|i| @@message_cache.get(i) || @@message_cache.set(i, Skype::Chat::Message.new(i), 3600*72) }
     end
 
     def post(message)
