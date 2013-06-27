@@ -6,15 +6,10 @@ require 'skype'
 
 chats = Skype.chats
 puts "#{chats.length} chats found"
-chat = chats.find{|c| c.members.include? "shokai_bot" and c.topic =~ /増井研/}
+chat = chats.find{|c| c.members.include? "shokaishokai" and c.topic =~ /test/}
 
 p chat
-puts chat.topic
 chat.post "test"
-
-chat.messages.each do |m|
-  puts m
-end
 
 chat.messages.each do |m|
   puts m
