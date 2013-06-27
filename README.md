@@ -43,25 +43,18 @@ Skype.config :app_name => "my_skype_app"
 ```
 
 ### Skype API
+
 send message
 ```ruby
 Skype.message "USER_NAME", "hello!!"
-```
-or
-```ruby
 Skype.exec "MESSAGE USER_NAME hello!!"
 ```
-
 
 call
 ```ruby
 Skype.call "USER_NAME"
-```
-or
-```ruby
 Skype.exec "CALL USER_NAME"
 ```
-
 
 ### Chat API
 
