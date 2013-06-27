@@ -3,6 +3,8 @@ require case RUBY_PLATFORM
           "skype/platforms/mac"
         when /linux/
           "skype/platforms/linux"
+        else
+          STDERR.puts %Q{!!Skype gem cannot support your platform "#{RUBY_PLATFORM}" not support.}
         end
 
 module Skype
