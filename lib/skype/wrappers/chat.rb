@@ -11,7 +11,7 @@ module Skype
 
     def initialize(id)
       @id = id
-      @members = []
+      @members = ::Skype::exec("GET CHAT #{@id} MEMBERS").scan(/MEMBERS (.+)$/)[0][0].split(/\s/)
     end
 
     def messages

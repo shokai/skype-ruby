@@ -5,7 +5,7 @@ require 'skype'
 
 chats = Skype.chats
 puts "#{chats.length} chats found"
-chat = chats.find{|c| c.id =~ /shokai_bot/}
+chat = chats.find{|c| c.members.include? "shokai_bot"}
 p chat
 
 chat.post "test"
@@ -13,3 +13,4 @@ chat.post "test"
 chat.messages.each do |m|
   puts m
 end
+
