@@ -1,7 +1,7 @@
 require "rubygems"
+require "kconv"
 
 require "skype/version"
-
 require case RUBY_PLATFORM
         when /darwin/
           "skype/platforms/mac"
@@ -10,7 +10,6 @@ require case RUBY_PLATFORM
         else
           STDERR.puts %Q{!!Skype gem cannot support your platform "#{RUBY_PLATFORM}" not support.}
         end
-
 require "skype/main"
 require "skype/wrappers/chat"
 
