@@ -3,4 +3,6 @@ require 'rubygems'
 $:.unshift File.expand_path '../lib', File.dirname(__FILE__)
 require 'skype'
 
-p Skype.message "shokaishokai", "hello"
+user = ARGV.shift || "shokaishokai"
+msg  = ARGV.shift || "hello"
+p Skype.message user, msg

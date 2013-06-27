@@ -1,7 +1,7 @@
 require "rubygems"
 
 require "skype/version"
-require "skype/skype"
+require "skype/main"
 
 module Skype
 end
