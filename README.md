@@ -82,11 +82,12 @@ https://github.com/shokai/skype-ruby/tree/master/samples
 
 Test
 ----
+test requires 2 skype accounts.
 
     % gem install bundler
     % bundle install
-    % export SKYPE_FROM=your-skype-name1
-    % export SKYPE_TO=your-skype-name2
+    % export SKYPE_FROM=your_skype_name1
+    % export SKYPE_TO=your_skype_name2
     % rake test
 
 
