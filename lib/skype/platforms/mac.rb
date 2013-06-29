@@ -3,7 +3,7 @@ module Skype
     script = %Q{tell application "Skype"
   send command "#{Utils.escape command}" script name "#{self.config[:app_name]}"
 end tell}
-    res = `/usr/bin/osascript -e '#{script}'`.split(/[\n\r]+/)
+    res = `unset LD_LIBRARY_PATH; unset DYLD_LIBRARY_PATH; /usr/bin/osascript -e '#{script}'`.split(/[\n\r]+/)
     res.shift if res.size > 1 and res[0] =~ /^dyld: /
     res[0]
   end
