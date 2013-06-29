@@ -28,4 +28,11 @@ class TestSkype < MiniTest::Test
     assert_equal msg.time.class, Time
     assert_equal msg.user, SKYPE_FROM
   end
+
+  def test_chats
+    chat = Skype.chats[0]
+    assert_equal chat.class, Skype::Chat
+    assert_equal chat.topic.class, String
+    assert_equal chat.members.class, Array
+  end
 end
