@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    skype (0.1.1)
+    skype (0.1.2)
       tmp_cache
 
 GEM

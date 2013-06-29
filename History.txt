@@ -1,3 +1,8 @@
+=== 0.1.2 2013-06-29
+
+* bugfix Chat API wrapper
+* passed all tests for linux
+
 === 0.1.1 2013-06-29
 
 * add tests
