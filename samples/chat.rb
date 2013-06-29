@@ -6,11 +6,33 @@ require 'skype'
 
 chats = Skype.chats
 puts "#{chats.length} chats found"
-chat = chats.find{|c| c.members.include? "shokaishokai" and c.topic =~ /test/} || chats[0]
+chats.each_with_index do |c, index|
+  title = "#{c.topic} #{c.members[0..5].join(',')} (#{c.members.size} users)".strip
+  puts "[#{index}] #{title}"
+end
 
-p chat
-chat.post "test"
+chat = nil
+loop do
+  print "select [0]~[#{chats.size-1}] >"
+  line = STDIN.gets.strip
+  next unless line =~ /^\d+$/
+  chat = chats[line.to_i]
+  break
+end
 
-chat.messages.each do |m|
-  puts m
+Thread.new do
+  last_id = 0
+  loop do
+    chat.messages.each do |m|
+      next unless last_id < m.id
+      puts m
+      last_id = m.id
+    end
+    sleep 1
+  end
+end
+
+loop do
+  line = STDIN.gets.strip
+  chat.post line
 end
