@@ -1,3 +1,8 @@
+=== 0.1.1 2013-06-29
+
+* add tests
+* use /usr/bin/osascript instead of rb-appscript
+
 === 0.1.0 2013-06-27
 
 * add Chat API
