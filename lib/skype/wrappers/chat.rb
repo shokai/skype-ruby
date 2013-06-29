@@ -1,5 +1,9 @@
 module Skype
 
+  response_filter /^(CHAT)?MESSAGE (\d+) STATUS (SENT|SENDING)$/ do |res|
+    Skype::Chat::Message.new res.scan(/^(CHAT)?MESSAGE (\d+) STATUS (SENT|SENDING)$/)[0][1].to_i
+  end
+
   def self.chats
     search("recentchats").
       scan(/(#[^\s,]+)[\s,]/).
@@ -35,7 +39,7 @@ module Skype
       attr_reader :id, :user, :body, :time
 
       def initialize(id)
-        @id = id
+        @id = id.to_i
         @user = ::Skype.exec("GET CHATMESSAGE #{@id} from_handle").split(/\s/).last rescue @user = ""
         @body = ::Skype.exec("GET CHATMESSAGE #{@id} body").scan(/^(CHAT)?MESSAGE #{@id} BODY (.+)$/)[0][1] rescue @body = ""
         @time = Time.at ::Skype.exec("GET CHATMESSAGE #{@id} timestamp").split(/\s/).last.to_i
