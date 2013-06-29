@@ -34,5 +34,6 @@ class TestSkype < MiniTest::Test
     assert_equal chat.class, Skype::Chat
     assert_equal chat.topic.class, String
     assert_equal chat.members.class, Array
+    assert_equal !chat.members.empty?, true
   end
 end
