@@ -6,7 +6,7 @@ require 'skype'
 
 chats = Skype.chats
 puts "#{chats.length} chats found"
-chat = chats.find{|c| c.members.include? "shokaishokai" and c.topic =~ /test/}
+chat = chats.find{|c| c.members.include? "shokaishokai" and c.topic =~ /test/} || chats[0]
 
 p chat
 chat.post "test"
