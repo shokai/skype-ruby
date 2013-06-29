@@ -1,6 +1,6 @@
 Skype
 =====
-[Skype Desktop API](http://dev.skype.com/desktop-api-reference) wrapper for Ruby
+[Skype Desktop API](http://dev.skype.com/desktop-api-reference) Ruby wrapper for Mac/Linux.
 
 - https://github.com/shokai/skype-ruby
 - http://rubygems.org/gems/skype
