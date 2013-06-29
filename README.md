@@ -17,7 +17,7 @@ Installation
 
 for Mac
 
-    % gem install skype rb-appscript
+    % gem install skype
 
 for Linux
 
@@ -26,7 +26,6 @@ for Linux
 Gemfile
 ```ruby
 gem "skype"
-gem "rb-appscript" if RUBY_PLATFORM =~ /darwin/i
 gem "ruby-dbus"    if RUBY_PLATFORM =~ /linux/i
 ```
 
