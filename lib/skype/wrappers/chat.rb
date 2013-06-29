@@ -16,7 +16,7 @@ module Skype
     attr_reader :id, :topic, :members
 
     def initialize(id)
-      @id = id.to_i
+      @id = id
       @topic = ::Skype.exec("GET CHAT #{@id} TOPIC").scan(/TOPIC (.*)$/)[0][0].toutf8 rescue @topic = ""
       @members = ::Skype.exec("GET CHAT #{@id} MEMBERS").scan(/MEMBERS (.+)$/)[0][0].split(/\s/) rescue @members = []
     end
