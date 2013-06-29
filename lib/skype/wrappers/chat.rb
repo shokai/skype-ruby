@@ -36,8 +36,8 @@ module Skype
 
       def initialize(id)
         @id = id
-        @user = ::Skype.exec("GET CHATMESSAGE #{@id} from_handle").split(/\s/).last
-        @body = ::Skype.exec("GET CHATMESSAGE #{@id} body").scan(/^MESSAGE #{@id} BODY (.+)$/)[0][0]
+        @user = ::Skype.exec("GET CHATMESSAGE #{@id} from_handle").split(/\s/).last rescue @user = ""
+        @body = ::Skype.exec("GET CHATMESSAGE #{@id} body").scan(/^MESSAGE #{@id} BODY (.+)$/)[0][0] rescue @body = ""
         @time = Time.at ::Skype.exec("GET CHATMESSAGE #{@id} timestamp").split(/\s/).last.to_i
       end
 
