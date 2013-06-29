@@ -18,6 +18,12 @@ module Skype
   end
 
   def self.exec(command)
-    (@@connection||=Connection.new).invoke command
+    res = (@@connection||=Connection.new).invoke command
+    @@filters.each do |filter, block|
+      next unless res =~ filter
+      res = block.call(res)
+      break
+    end
+    res
   end
 end
