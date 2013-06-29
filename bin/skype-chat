@@ -3,6 +3,8 @@ require 'rubygems'
 $:.unshift File.expand_path '../lib', File.dirname(__FILE__)
 require 'skype'
 
+puts "skype rubygem v#{Skype::VERSION}"
+
 chats = Skype.chats
 puts "#{chats.length} chats found"
 chats.each_with_index do |c, index|
