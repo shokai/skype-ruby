@@ -18,10 +18,12 @@ Installation
 for Mac
 
     % gem install skype
+    % skype-chat
 
 for Linux
 
     % gem install skype ruby-dbus
+    % skype-chat
 
 Gemfile
 ```ruby
