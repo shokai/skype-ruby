@@ -33,5 +33,6 @@ end
 
 loop do
   line = STDIN.gets.strip
+  next if line.empty?
   chat.post line
 end
