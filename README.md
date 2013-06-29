@@ -26,7 +26,7 @@ for Linux
 Gemfile
 ```ruby
 gem "skype"
-gem "ruby-dbus"    if RUBY_PLATFORM =~ /linux/i
+gem "ruby-dbus" if RUBY_PLATFORM =~ /linux/i
 ```
 
 Usage
