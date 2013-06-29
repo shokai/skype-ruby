@@ -80,6 +80,16 @@ Samples
 https://github.com/shokai/skype-ruby/tree/master/samples
 
 
+Test
+----
+
+    % gem install bundler
+    % bundle install
+    % export SKYPE_FROM=your-skype-name1
+    % export SKYPE_TO=your-skype-name2
+    % rake test
+
+
 Contributing
 ------------
 1. Fork it
