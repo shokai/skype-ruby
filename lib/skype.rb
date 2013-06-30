@@ -10,7 +10,7 @@ require case RUBY_PLATFORM
         when /linux/
           "skype/platforms/linux"
         else
-          STDERR.puts %Q{!!Skype gem cannot support your platform "#{RUBY_PLATFORM}" not support.}
+          STDERR.puts %Q{!!Skype gem cannot support your platform "#{RUBY_PLATFORM}"}
         end
 require "skype/main"
 require "skype/wrappers/chat"
