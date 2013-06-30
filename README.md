@@ -80,17 +80,17 @@ end
 
 call
 ```ruby
-c = Skype.call "shokaishokai"
+call = Skype.call "shokaishokai"
 ```
 
 check status
 ```ruby
-puts c.status # => :routing, :ringing, :inprogress, :finished, :missed, :cancelled
+puts call.status # => :routing, :ringing, :inprogress, :finished, :missed, :cancelled
 ```
 
 hangup
 ```ruby
-c.hangup
+call.hangup
 ```
 
 Samples
