@@ -1,3 +1,7 @@
+=== 0.2.0 2013-06-30
+
+* add Call API wrapper and tests
+
 === 0.1.5 2013-06-30
 
 * add skype-chat command
@@ -24,7 +28,7 @@
 
 === 0.1.0 2013-06-27
 
-* add Chat API
+* add Chat API wrapper
 
 === 0.0.3 2013-06-20
 
