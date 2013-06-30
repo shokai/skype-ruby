@@ -8,9 +8,9 @@ print "> "
 to = STDIN.gets.strip
 call = Skype.call to
 
-loop do
+
+while !call.talking?
   puts call.status
-  break if call.talking?
   sleep 1
 end
 
@@ -19,6 +19,6 @@ end
   sleep 1
 end
 
-call.hangup
+call.hangup if call.talking?
 
 puts call.status
