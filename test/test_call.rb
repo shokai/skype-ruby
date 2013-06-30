@@ -12,7 +12,7 @@ class TestSkypeCall < MiniTest::Test
     assert_equal call.to, SKYPE_TO
     sleep 1
     call.hangup
-    assert [:finished, :missed].include? call.status
+    assert [:finished, :missed, :cancelled].include? call.status
   end
 
 end
