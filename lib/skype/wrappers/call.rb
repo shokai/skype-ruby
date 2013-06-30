@@ -6,6 +6,8 @@ module Skype
 
   class Call
 
+    attr_reader :id, :time, :to
+
     def initialize(id)
       @id = id.to_i
       @time = Time.at ::Skype.exec("GET CALL #{id} TIMESTAMP").split(/\s/).last.to_i

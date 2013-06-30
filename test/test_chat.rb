@@ -1,6 +1,6 @@
 require File.expand_path 'test_helper', File.dirname(__FILE__)
 
-class TestSkype < MiniTest::Test
+class TestSkypeChat < MiniTest::Test
 
   SKYPE_FROM = ENV["SKYPE_FROM"]
   SKYPE_TO   = ENV["SKYPE_TO"] || "echo123"
