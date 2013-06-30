@@ -76,6 +76,23 @@ chat.messages.each do |m|
 end
 ```
 
+### Call API
+
+call
+```ruby
+c = Skype.call "shokaishokai"
+```
+
+check status
+```ruby
+puts c.status # => :routing, :ringing, :inprogress, :finished
+```
+
+hangup
+```ruby
+c.hangup
+```
+
 Samples
 -------
 https://github.com/shokai/skype-ruby/tree/master/samples
