@@ -9,8 +9,8 @@ to = STDIN.gets.strip
 call = Skype.call to
 
 loop do
-  puts s = call.status
-  break if s == :inprogress
+  puts call.status
+  break if call.talking?
   sleep 1
 end
 

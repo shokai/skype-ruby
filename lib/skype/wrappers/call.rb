@@ -22,6 +22,10 @@ module Skype
       end
     end
 
+    def talking?
+      status == :inprogress
+    end
+
     def hangup
       ::Skype.exec "ALTER CALL #{@id} HANGUP"
     end

@@ -85,7 +85,8 @@ call = Skype.call "shokaishokai"
 
 check status
 ```ruby
-puts call.status # => :routing, :ringing, :inprogress, :finished, :missed, :cancelled
+puts call.status   # => :routing, :ringing, :inprogress, :finished, :missed, :cancelled
+puts call.talking? # => true, false
 ```
 
 hangup
