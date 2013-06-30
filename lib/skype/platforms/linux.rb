@@ -17,7 +17,9 @@ module Skype
     end
   end
 
-  def self.exec(command)
-    filter_response (@@connection||=Connection.new).invoke command
+  def self.exec(command, :response_filter => true)
+    res = (@@connection||=Connection.new).invoke command
+    res = filter_response res if opts[:response_filter]
+    res
   end
 end
