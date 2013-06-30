@@ -14,9 +14,9 @@ module Skype
 
     def status
       begin
-        @status = ::Skype.exec("GET CALL #{@id} STATUS", :response_filter => false).scan(/([A-Z]+)$/)[0][0] 
+        @status = ::Skype.exec("GET CALL #{@id} STATUS", :response_filter => false).scan(/([A-Z]+)$/)[0][0].downcase.to_sym
       rescue
-        @status = "API_ERROR"
+        @status = :api_error
       end
     end
 
