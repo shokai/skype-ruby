@@ -95,7 +95,8 @@ call.hangup
 
 Samples
 -------
-https://github.com/shokai/skype-ruby/tree/master/samples
+- https://github.com/shokai/skype-ruby/tree/master/samples
+- https://github.com/shokai/skype-ruby/tree/master/bin
 
 
 Test
