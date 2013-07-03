@@ -11,8 +11,6 @@ module Skype
   end
 
   class Chat
-    @@message_cache = TmpCache::Cache.new
-
     attr_reader :id, :topic, :members
 
     def initialize(id)
@@ -25,9 +23,7 @@ module Skype
       ::Skype.exec("GET CHAT #{@id} RECENTCHATMESSAGES").
         split(/,? /).
         select{|i| i =~ /^\d+$/ }.
-        map{|i| i.to_i }.
-        map{|i| @@message_cache.get(i) || @@message_cache.set(i, Skype::Chat::Message.new(i), 3600*72) }.
-        sort{|a,b| b.time <=> a.time }
+        map{|i| Skype::Chat::Message.new i }
     end
 
     def post(message)
@@ -35,18 +31,49 @@ module Skype
     end
 
     class Message
+      @@cache = TmpCache::Cache.new
 
       attr_reader :id, :user, :body, :time
 
       def initialize(id)
         @id = id.to_i
-        @user = ::Skype.exec("GET CHATMESSAGE #{@id} from_handle").split(/\s/).last rescue @user = ""
-        @body = ::Skype.exec("GET CHATMESSAGE #{@id} body").scan(/^(CHAT)?MESSAGE #{@id} BODY (.+)$/)[0][1] rescue @body = ""
-        @time = Time.at ::Skype.exec("GET CHATMESSAGE #{@id} timestamp").split(/\s/).last.to_i
+        if cache = @@cache.get(@id)
+          @user = cache[:user]
+          @body = cache[:body]
+          @time = cache[:time]
+        end
+      end
+
+      def user
+        get_properties
+        @user
+      end
+
+      def body
+        get_properties
+        @body
+      end
+
+      def time
+        get_properties
+        @time
       end
 
       def to_s
-        "[#{@time}] <#{@user}> #{@body} "
+        "[#{time}] <#{user}> #{body} "
+      end
+
+      private
+      def get_properties
+        return if @user and @body and @time
+        @user = ::Skype.exec("GET CHATMESSAGE #{@id} from_handle").split(/\s/).last rescue @user = ""
+        @body = ::Skype.exec("GET CHATMESSAGE #{@id} body").scan(/^(CHAT)?MESSAGE #{@id} BODY (.+)$/)[0][1] rescue @body = ""
+        @time = Time.at ::Skype.exec("GET CHATMESSAGE #{@id} timestamp").split(/\s/).last.to_i
+        @@cache.set(@id, {
+                      :user => @user,
+                      :body => @body,
+                      :time => @time
+                    }, 3600*72)
       end
 
     end
