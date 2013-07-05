@@ -1,3 +1,7 @@
+=== 0.2.3 2013-07-05
+
+* set $DBUS_SESSION_BUS_ADDRESS if not exists
+
 === 0.2.2 2013-07-03
 
 * get properties of Skype::Chat::Message on access
