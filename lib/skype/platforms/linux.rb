@@ -4,6 +4,7 @@ module Skype
   class Connection
 
     def initialize
+      set_dbus_session_bus_address
       @bus = DBus.session_bus
       @service = @bus.service('com.Skype.API').object('/com/Skype')
       @service.default_iface = 'com.Skype.API'
@@ -14,6 +15,20 @@ module Skype
 
     def invoke(cmd)
       @service.Invoke(cmd)[0]
+    end
+
+    private
+    def set_dbus_session_bus_address
+      return if ENV['DBUS_SESSION_BUS_ADDRESS']
+      addrs = []
+      Dir.glob("#{ENV['HOME']}/.dbus/session-bus/*").each do |fname|
+        File.open fname do |f|
+          addrs.push f.readlines.find{|line|
+            line =~ /^DBUS_SESSION_BUS_ADDRESS=/
+          }.gsub(/^DBUS_SESSION_BUS_ADDRESS=/,'')
+        end
+      end
+      ENV['DBUS_SESSION_BUS_ADDRESS'] = addrs[0]
     end
   end
 
