@@ -1,8 +1,8 @@
 module Skype
   response_filter /^ERROR / do |res|
-    raise Skype::Error, res
+    raise Skype::APIError, res
   end
 
-  class Error < StandardError
+  class APIError < StandardError
   end
 end
