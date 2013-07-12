@@ -5,9 +5,9 @@ require "tmp_cache"
 require "skype/version"
 require "skype/filter"
 require case RUBY_PLATFORM
-        when /darwin/
+        when /darwin/i
           "skype/platforms/mac"
-        when /linux/
+        when /linux/i
           "skype/platforms/linux"
         else
           STDERR.puts %Q{!!Skype gem cannot support your platform "#{RUBY_PLATFORM}"}
