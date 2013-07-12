@@ -1,3 +1,8 @@
+=== 0.2.5 2013-07-12
+
+* bugfix for Ruby1.8.7
+* rename Skype::Error -> Skype::APIError
+
 === 0.2.4 2013-07-12
 
 * raise Skype::Error on API Error
