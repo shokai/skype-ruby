@@ -15,6 +15,7 @@ require case RUBY_PLATFORM
 require "skype/main"
 require "skype/wrappers/chat"
 require "skype/wrappers/call"
+require "skype/wrappers/error"
 
 module Skype
 end
