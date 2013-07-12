@@ -11,6 +11,6 @@ module Skype
   end
 
   def self.method_missing(name, *args)
-    self.exec "#{name.upcase} #{args.join(' ')}"
+    self.exec "#{name.to_s.upcase} #{args.join(' ')}"
   end
 end
