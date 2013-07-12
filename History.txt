@@ -1,3 +1,7 @@
+=== 0.2.4 2013-07-12
+
+* raise Skype::Error on API Error
+
 === 0.2.3 2013-07-05
 
 * set $DBUS_SESSION_BUS_ADDRESS if not exists
