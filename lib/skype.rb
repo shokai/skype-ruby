@@ -4,7 +4,8 @@ require "tmp_cache"
 
 require "skype/version"
 require "skype/filter"
-require case RUBY_PLATFORM
+require "rbconfig"
+require case RbConfig::CONFIG['host_os']
         when /darwin/i
           "skype/platforms/mac"
         when /linux/i
