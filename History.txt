@@ -1,3 +1,7 @@
+=== 0.2.6 2013-07-21
+
+* use RbConfig::CONFIG[host_os] instead of RUBY_PLATFORM
+
 === 0.2.5 2013-07-12
 
 * bugfix for Ruby1.8.7
