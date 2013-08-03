@@ -1,3 +1,7 @@
+=== 0.2.7 2013-08-03
+
+* add samples/chat_list.rb
+
 === 0.2.6 2013-07-21
 
 * use RbConfig::CONFIG[host_os] instead of RUBY_PLATFORM
