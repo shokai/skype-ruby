@@ -6,7 +6,7 @@ module Skype
 
   def self.chats
     search("recentchats").
-      scan(/(#[^\s,]+)[\s,]/).
+      scan(/\s(#[^\s,]+),?/).
       map{|i| Chat.new i[0] }
   end
 
