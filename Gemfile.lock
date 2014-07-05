@@ -1,14 +1,14 @@
 PATH
   remote: .
   specs:
-    skype (0.2.7)
+    skype (0.2.8)
       tmp_cache
 
 GEM
   remote: https://rubygems.org/
   specs:
-    minitest (5.0.6)
-    rake (10.1.0)
+    minitest (5.3.5)
+    rake (10.3.2)
     tmp_cache (0.1.1)
 
 PLATFORMS
