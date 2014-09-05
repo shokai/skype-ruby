@@ -11,12 +11,23 @@ module Skype
   end
 
   class Chat
-    attr_reader :id, :topic, :members
+    attr_reader :id
 
     def initialize(id)
       @id = id
-      @topic = ::Skype.exec("GET CHAT #{@id} TOPIC").scan(/TOPIC (.*)$/)[0][0].toutf8 rescue @topic = ""
-      @members = ::Skype.exec("GET CHAT #{@id} MEMBERS").scan(/MEMBERS (.+)$/)[0][0].split(/\s/) rescue @members = []
+    end
+
+    def topic
+      ::Skype.exec("GET CHAT #{@id} TOPIC").scan(/TOPIC (.*)$/)[0][0].toutf8 rescue ""
+    end
+
+    def members
+      ::Skype.exec("GET CHAT #{@id} MEMBERS").scan(/MEMBERS (.+)$/)[0][0].split(/\s/) rescue []
+    end
+
+    def topic=(new_topic)
+      ::Skype.exec("ALTER CHAT #{@id} SETTOPICXML #{new_topic}")
+      topic
     end
 
     def messages

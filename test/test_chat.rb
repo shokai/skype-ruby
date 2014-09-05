@@ -36,4 +36,13 @@ class TestSkypeChat < MiniTest::Test
     assert_equal chat.members.class, Array
     assert_equal !chat.members.empty?, true
   end
+
+  def test_chat_topic
+    chat = Skype.chats.find{|c|
+      c.members.sort == [SKYPE_TO, SKYPE_FROM].sort
+    }
+    assert_equal chat.class, Skype::Chat
+    chat.topic = topic = "topic set test #{Time.now.to_i}"
+    assert_equal chat.topic, topic
+  end
 end
