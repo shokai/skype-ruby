@@ -48,13 +48,18 @@ Skype.config :app_name => "my_skype_app"
 send message
 ```ruby
 Skype.message "USER_NAME", "hello!!"
-Skype.exec "MESSAGE USER_NAME hello!!"
+Skype.exec "MESSAGE USER_NAME hello!!"  # execute API directly
 ```
 
 call
 ```ruby
 Skype.call "USER_NAME"
 Skype.exec "CALL USER_NAME"
+```
+
+video call
+```ruby
+Skype.exec "VIDEOCALL USER_NAME"
 ```
 
 ### Chat API
