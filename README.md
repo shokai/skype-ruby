@@ -81,6 +81,18 @@ chat.messages.each do |m|
 end
 ```
 
+edit chat messages
+```ruby
+message = chat.messages.last
+
+# edit
+message.edit { |current_body| "#{current_body.upcase}!"}
+# replace
+message.body = 'New message body'
+# remove
+message.remove
+```
+
 ### Call API
 
 call
