@@ -59,6 +59,24 @@ module Skype
         @time
       end
 
+      def body=(body)
+        ::Skype.exec("SET CHATMESSAGE #{@id} BODY #{body}")
+        @body = body
+        @@cache.set(@id, {
+                      :user => @user,
+                      :body => @body,
+                      :time => @time
+                    }, 3600*72)
+      end
+
+      def edit
+        self.body = yield @body
+      end
+
+      def remove
+        self.body = ''
+      end
+
       def to_s
         "[#{time}] <#{user}> #{body} "
       end
