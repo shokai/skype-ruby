@@ -59,7 +59,7 @@ module Skype
         @time
       end
 
-      def edit(body)
+      def body=(body)
         ::Skype.exec("SET CHATMESSAGE #{@id} BODY #{body}")
         @body = body
         @@cache.set(@id, {
@@ -68,10 +68,13 @@ module Skype
                       :time => @time
                     }, 3600*72)
       end
-      alias body= edit
+
+      def edit
+        self.body = yield @body
+      end
 
       def remove
-        edit('')
+        self.body = ''
       end
 
       def to_s
